@@ -69,18 +69,25 @@ class Route
                 $replyText = $event->getText();
                 $logger->info('Reply text: ' . $replyText);
 
-                if('enjoy' == $replyText){
-                    $replyText = 'enjoy の始まりだよ。<br>30秒以内に質問を書いてね。';
+                if('enjoy' == $replyText && 'Enjoy' == $replyText){
+                    $replyText = 'Enjoy!!' . PHP_EOL;
+                    $replyText .= '今日は楽しめた！？' . PHP_EOL;
+                    $replyText .= 'Yes/No' . PHP_EOL;
+
+                    $replyText .= '30 秒後に、集計結果が来るよ。' . PHP_EOL;
+
                     //$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($replyText);
                     //$response = $bot->pushMessage($event->getReplyToken(), $textMessageBuilder);
 
                     //echo $response->getHTTPStatus() . ' : ' . $response->getRawBody();
+
+                    $replyText .= 'Yes 3/ No 1/未回答 26 だったよ。明日も Enjoy!!';
                 }
-                elseif('Enjoy' == $replyText){
-                    $replyText = 'Enjoy の始まりだ。';
-                }
-                elseif('検索'){
+                elseif('検索' == $replyText){
                     $replyText = 'http://google.com/';
+                }
+                else{
+
                 }
 
                 $resp = $bot->replyText($event->getReplyToken(), $replyText);
