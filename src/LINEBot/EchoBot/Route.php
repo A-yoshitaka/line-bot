@@ -70,11 +70,11 @@ class Route
                 $logger->info('Reply text: ' . $replyText);
 
                 if('enjoy' == $replyText){
-                    $replyText = 'enjoy の始まりだ。';
-                    $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($replyText);
-                    $response = $bot->pushMessage($event->getReplyToken(), $textMessageBuilder);
+                    $replyText = 'enjoy の始まりだよ。<br>30秒以内に質問を書いてね。';
+                    //$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($replyText);
+                    //$response = $bot->pushMessage($event->getReplyToken(), $textMessageBuilder);
 
-                    echo $response->getHTTPStatus() . ' : ' . $response->getRawBody();
+                    //echo $response->getHTTPStatus() . ' : ' . $response->getRawBody();
                 }
                 elseif('Enjoy' == $replyText){
                     $replyText = 'Enjoy の始まりだ。';
