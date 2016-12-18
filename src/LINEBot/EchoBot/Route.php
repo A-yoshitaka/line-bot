@@ -69,7 +69,7 @@ class Route
                 $replyText = $event->getText();
                 $logger->info('Reply text: ' . $replyText);
 
-                if('enjoy' == $replyText && 'Enjoy' == $replyText){
+                if('enjoy' == $replyText || 'Enjoy' == $replyText){
                     $replyText = 'Enjoy!!' . PHP_EOL;
                     $replyText .= '今日は楽しめた！？' . PHP_EOL;
                     $replyText .= 'Yes/No' . PHP_EOL;
