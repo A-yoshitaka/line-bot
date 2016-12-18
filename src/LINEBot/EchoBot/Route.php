@@ -76,6 +76,9 @@ class Route
 
                     echo $response->getHTTPStatus() . ' : ' . $response->getRawBody();
                 }
+                elseif('Enjoy' == $replyText){
+                    $replyText = 'Enjoy の始まりだ。';
+                }
 
                 $resp = $bot->replyText($event->getReplyToken(), $replyText);
                 $logger->info($resp->getHTTPStatus() . ' : ' . $resp->getRawBody());
