@@ -79,6 +79,9 @@ class Route
                 elseif('Enjoy' == $replyText){
                     $replyText = 'Enjoy の始まりだ。';
                 }
+                elseif('検索'){
+                    $replyText = 'http://google.com/';
+                }
 
                 $resp = $bot->replyText($event->getReplyToken(), $replyText);
                 $logger->info($resp->getHTTPStatus() . ' : ' . $resp->getRawBody());
