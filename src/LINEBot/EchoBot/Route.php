@@ -71,10 +71,14 @@ class Route
 
                 if('enjoy' == $replyText){
                     $replyText = 'enjoy です。';
+                    $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($replyText);
+                    $response = $bot->pushMessage($event->getReplyToken(), $textMessageBuilder);
+
+                    echo $response->getHTTPStatus() . ' : ' . $response->getRawBody();
                 }
 
                 $resp = $bot->replyText($event->getReplyToken(), $replyText);
-                $logger->info($resp->getHTTPStatus() . ': ' . $resp->getRawBody());
+                $logger->info($resp->getHTTPStatus() . ' : ' . $resp->getRawBody());
             }
 
             $res->write('OK');
