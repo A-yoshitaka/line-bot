@@ -70,7 +70,7 @@ class Route
                 $logger->info('Reply text: ' . $replyText);
 
                 if('enjoy' == $replyText){
-                    $replyText = 'enjoy です。';
+                    $replyText = 'enjoy の始まりだ。';
                     $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($replyText);
                     $response = $bot->pushMessage($event->getReplyToken(), $textMessageBuilder);
 
